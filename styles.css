@@ -954,3 +954,34 @@ html.restoring-section { scroll-behavior: auto; }
   .hobby-heading { gap: 14px; }
   .hobby-list strong { font-size: 16px; }
 }
+/* Compact digital contact button, including the wrapped navigation layout. */
+.nav-links .nav-cta {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  width: max-content; max-width: 100%; justify-self: end; flex-shrink: 0;
+  padding: 9px 16px; border: 2px solid var(--ink); border-radius: 0;
+  background: #101719; color: var(--yellow);
+  box-shadow: inset 0 0 0 1px rgba(255,217,61,.55), 3px 3px 0 var(--cyan), 5px 5px 0 var(--ink);
+  font-family: var(--mono), sans-serif; font-weight: 900; letter-spacing: .08em;
+  text-shadow: 1px 0 rgba(255,217,61,.28);
+  transition: transform .18s var(--ease), box-shadow .18s var(--ease), color .18s;
+}
+.nav-links .nav-cta::before {
+  content: ''; width: 6px; height: 6px; flex: 0 0 6px;
+  background: var(--cyan); box-shadow: 0 0 7px rgba(102,224,218,.65);
+}
+.nav-links .nav-cta::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: repeating-linear-gradient(0deg, transparent 0 3px, rgba(255,255,255,.055) 3px 4px);
+}
+.nav-links .nav-cta span { display: inline; color: var(--cyan); }
+.nav-links .nav-cta:hover,
+.nav-links .nav-cta:focus-visible {
+  background: #101719; color: #fff7c2; transform: translate(-2px,-2px);
+  box-shadow: inset 0 0 0 1px var(--cyan), 5px 5px 0 var(--cyan), 7px 7px 0 var(--ink);
+}
+.nav-links .nav-cta:focus-visible { outline: 3px solid var(--ink); outline-offset: 5px; }
+.nav-links .nav-cta:active { transform: translate(1px,1px); box-shadow: inset 0 0 0 1px var(--cyan), 2px 2px 0 var(--cyan), 3px 3px 0 var(--ink); }
+@media (max-width: 860px) {
+  .nav-links .nav-cta { margin: 5px 5px 5px 0; padding: 7px 13px; gap: 8px; }
+}
